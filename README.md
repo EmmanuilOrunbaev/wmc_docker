@@ -18,3 +18,55 @@ Dockerisieren Sie die Applikation
   Ports überprüfen, sind an zwei Stellen relevant
 * das Frontend sollte nie gar nicht unter keinen Umständen zur Datenbank können
 * es muss genau ein einziger port geforwarded werden
+
+## Instructions to build and run the application using Docker and Docker Compose
+
+### Dockerize without Docker Compose
+
+#### Backend
+
+1. Navigate to the `backend` directory:
+   ```sh
+   cd backend
+   ```
+
+2. Build the Docker image for the backend:
+   ```sh
+   docker build -t backend-image .
+   ```
+
+3. Run the Docker container for the backend:
+   ```sh
+   docker run -d -p 8000:8000 --name backend-container backend-image
+   ```
+
+#### Frontend
+
+1. Navigate to the `frontend` directory:
+   ```sh
+   cd frontend
+   ```
+
+2. Build the Docker image for the frontend:
+   ```sh
+   docker build -t frontend-image .
+   ```
+
+3. Run the Docker container for the frontend:
+   ```sh
+   docker run -d -p 4200:4200 --name frontend-container frontend-image
+   ```
+
+### Dockerize with Docker Compose
+
+1. Navigate to the root directory of the project:
+   ```sh
+   cd ..
+   ```
+
+2. Build and run the Docker containers using Docker Compose:
+   ```sh
+   docker-compose up --build
+   ```
+
+3. Ensure the services can communicate with each other and are properly configured.
